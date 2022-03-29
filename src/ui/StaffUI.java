@@ -1,7 +1,9 @@
 package ui;
 
+import business.EmployeeManagement;
 import entity.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -11,6 +13,7 @@ public class StaffUI {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
         Employee employee;
+        EmployeeManagement empList = null;
         while (true) {
             System.out.println("University Staff Management 1.0");
             System.out.println("\t1 - Add staff");
@@ -23,7 +26,8 @@ public class StaffUI {
             switch (choice) {
                 case 1:
                     employee = createEmployee();
-                    System.out.println(employee);
+//                    System.out.println(employee);
+                    empList.getEmployeeList().add(employee);
                     break;
                 case 2:
 
@@ -31,6 +35,7 @@ public class StaffUI {
 
                 case 4:
 
+                    break;
                 default:
                     exit(0);
             }
@@ -111,6 +116,12 @@ public class StaffUI {
                 teacher.setAllowance(1000);
             }
             return teacher;
+        }
+    }
+
+    static void showList(ArrayList<Employee> list){
+        for (Employee e : list){
+            System.out.println(e);
         }
     }
 }
