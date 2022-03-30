@@ -13,7 +13,8 @@ public class StaffUI {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
         Employee employee;
-        EmployeeManagement empList = null;
+        EmployeeManagement employeeManagement = new EmployeeManagement();
+        ArrayList<Employee> employees = new ArrayList<>();
         while (true) {
             System.out.println("University Staff Management 1.0");
             System.out.println("\t1 - Add staff");
@@ -26,15 +27,27 @@ public class StaffUI {
             switch (choice) {
                 case 1:
                     employee = createEmployee();
-//                    System.out.println(employee);
-                    empList.getEmployeeList().add(employee);
+                    employeeManagement.addEmployee(employee);
+                    employees = employeeManagement.getEmployeeList();
                     break;
                 case 2:
-
+                    System.out.print("Search by name: ");
+                    Scanner sc = new Scanner(System.in);
+                    String nameSearch = sc.nextLine();
+                    ArrayList<Employee> foundByName = employeeManagement.searchByName(nameSearch);
+                    System.out.println("Result: ");
+                    showList(foundByName);
+                    break;
                 case 3:
-
+                    System.out.println("Enter department/faculty for search: ");
+                    Scanner sc2 = new Scanner(System.in);
+                    String dept = sc2.nextLine();
+                    ArrayList<Employee> foundByDept = employeeManagement.searchByDept(dept);
+                    System.out.println("Result:");
+                    showList(foundByDept);
+                    break;
                 case 4:
-
+                    showList(employees);
                     break;
                 default:
                     exit(0);
@@ -43,7 +56,7 @@ public class StaffUI {
     }
 
     static Employee createEmployee() {
-        System.out.println("Do you want to create a Staff or a Teacher (enter S for Staff, otherwise for Teacher? ");
+        System.out.print("Do you want to create a Staff or a Teacher (s for Staff, otherwise for Teacher)? ");
 
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
@@ -51,7 +64,7 @@ public class StaffUI {
         if (choice.equalsIgnoreCase("s")) {
             Staff staff = new Staff();
             //nhap thong tin tu ban phim
-            System.out.print("Name: ");
+            System.out.print("Staff Name: ");
             String fullName = scanner.nextLine();
 
             System.out.print("Salary ratio: ");
@@ -86,7 +99,7 @@ public class StaffUI {
             Teacher teacher = new Teacher();
 
             //nhap thong tin tu ban phim
-            System.out.print("Name: ");
+            System.out.print("Teacher Name: ");
             String fullName = scanner.nextLine();
 
             System.out.print("Salary ratio: ");

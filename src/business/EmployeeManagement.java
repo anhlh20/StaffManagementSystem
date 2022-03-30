@@ -1,6 +1,8 @@
 package business;
 
 import entity.Employee;
+import entity.Staff;
+import entity.Teacher;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -23,7 +25,7 @@ public class EmployeeManagement {
         ArrayList<Employee> foundByName = new ArrayList<>();
         ArrayList<Employee> empListOrigin = this.getEmployeeList();
 
-        if(name.equals("") || name.trim() == ""){
+        if(name.trim() == ""){
             return foundByName;
         }
         for (Employee e : empListOrigin){
@@ -33,6 +35,30 @@ public class EmployeeManagement {
             }
         }
         return foundByName;
+    }
+
+    public ArrayList<Employee> searchByDept(String dept){
+        ArrayList<Employee> foundByDept = new ArrayList<>();
+        ArrayList<Employee> empListOrigin = this.getEmployeeList();
+
+        Staff s = null;
+        Teacher t = null;
+        String name = null;
+        for (Employee e : empListOrigin){
+            if (e instanceof Staff){
+                s = (Staff) e;
+                name = s.getDepartment();
+            }
+            else if (e instanceof Teacher){
+                t = (Teacher) e;
+                name = t.getFaculty();
+            }
+
+            if (name.toUpperCase().contains(dept.toUpperCase())){
+                foundByDept.add(e);
+            }
+        }
+        return foundByDept;
     }
 
 

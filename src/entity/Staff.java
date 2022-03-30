@@ -36,6 +36,6 @@ public class Staff extends Employee {
     }
 
     public String toString() {
-        return this.getName() + ", " + this.getDepartment() + ", " + this.getPosition() + ", " + this.getSalaryRatio() + ", " + this.getAllowance() + ", " + this.getNumberWorkingDays() + this.getSalary();
+        return "Name: " + this.getName() + ", Department: " + this.getDepartment() + ", Position: " + this.getPosition() + ", Salary Ratio: " + this.getSalaryRatio() + ", Allowance: " + this.getAllowance() + ", Number working days: " + this.getNumberWorkingDays() + ", Salary: " + this.getSalary();
     }
 }

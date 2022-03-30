@@ -37,6 +37,6 @@ public class Teacher extends Employee {
 
     @Override
     public String toString() {
-        return this.getName() + ", " + this.getFaculty() + ", " + this.getDegree() + ", " + this.getSalaryRatio() + ", " + this.getAllowance() + ", " + this.getNumberTeachingHours() + this.getSalary();
+        return "Teacher name: " + this.getName() + ", Faculty: " + this.getFaculty() + ", Degree: " + this.getDegree() + ", Salary Ratio: " + this.getSalaryRatio() + ", Allowance: " + this.getAllowance() + ", Number teaching Hours: " + this.getNumberTeachingHours() + ", Salary: " + this.getSalary();
     }
 }
