@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class StaffUI {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
         Employee employee;

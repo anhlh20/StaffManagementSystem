@@ -1,9 +1,6 @@
 package business;
 
-import entity.EPosition;
-import entity.Employee;
-import entity.Staff;
-import entity.Teacher;
+import entity.*;
 import exception.MyValidateException;
 
 import java.io.*;
@@ -131,6 +128,14 @@ public class EmployeeManagement {
                     //tao teacher
                     ////format: teacher, name, faculty, degree, salaryRatio, allowance, teachingHours, salary
                     Teacher t = new Teacher();
+                    t.setName(words[1].trim());
+                    t.setFaculty(words[2].trim());
+                    t.setDegree(EDegree.valueOf(words[3].trim()));
+                    t.setSalaryRatio(Float.parseFloat(words[4].trim()));
+                    t.setAllowance(Float.parseFloat(words[5].trim()));
+                    t.setNumberTeachingHours(Integer.parseInt(words[6].trim()));
+
+                    //bo sung thuoc tinh salary
 
 
                     this.getEmployeeList().add(t);
